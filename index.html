@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little World ❤️ | For My Sheetal</title>
+  <meta name="description" content="A romantic surprise website crafted with love, memories, and dreams for Sheetal.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Heart & Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Fixed Top-Right Romantic Music Controller -->
+  <div class="fixed-music-wrap">
+    <button id="music-toggle-btn" class="music-pill-btn" aria-label="Toggle Romantic Music">
+      <span class="music-icon" id="music-icon">▶</span>
+      <span class="music-text" id="music-text">Play Music</span>
+      <div class="music-waves" id="music-waves">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Audio Element for User's Song -->
+  <audio id="bg-audio" preload="auto" loop>
+    <source src="music/our-song.mp3" type="audio/mpeg">
+    <source src="music/our-song.mpeg" type="audio/mpeg">
+    <source src="music/WhatsApp Audio 2026-09-12 at 2.19.31 AM.mpeg" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- ==========================================
+       STARTING SCREEN (100vh Full Screen)
+       ========================================== -->
+  <section id="welcome-screen" class="starting-screen">
+    <div class="starting-center-content">
+      <h1 class="starting-title">
+        <span class="title-glow-text">Our Little World</span>
+        <span class="title-heart">❤️</span>
+      </h1>
+    </div>
+
+    <!-- Soft Romantic Scroll Cue -->
+    <a href="#hero" class="scroll-down-cue" aria-label="Scroll to explore">
+      <span class="scroll-cue-text">Scroll with love</span>
+      <span class="scroll-cue-arrow">↓</span>
+    </a>
+  </section>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main-content" class="main-wrapper">
+
+    <!-- ==========================================
+         2. HER NAME + LOVE MESSAGE (HERO)
+         ========================================== -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-container">
+        <div class="hero-badge glass-pill">
+          <span>A World Made Specially For You</span>
+          <span class="badge-sparkle">✨</span>
+        </div>
+
+        <h1 class="hero-name">
+          <span id="hero-her-name">My Sheetal</span>
+          <span class="hero-heart-pulse">❤️</span>
+        </h1>
+
+        <!-- Romantic Shayari with Typing Effect -->
+        <div class="typewriter-container glass-card">
+          <div class="quote-mark left">“</div>
+          <p id="hero-typing-text" class="typing-text">
+            <!-- Dynamically typed via script.js -->
+          </p>
+          <span class="typing-cursor">|</span>
+          <div class="quote-mark right">”</div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#memories" class="btn-romantic glow-btn">
+            <span>Explore Our Memories</span>
+            <span>📸</span>
+          </a>
+          <a href="#our-story" class="btn-outline">
+            <span>Our Journey</span>
+            <span>❤️</span>
+          </a>
+        </div>
+
+        <a href="#our-story" class="scroll-indicator" aria-label="Scroll Down">
+          <span class="scroll-text">Scroll Down With Love</span>
+          <div class="scroll-arrow">↓</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         6. OUR STORY (TIMELINE)
+         ========================================== -->
+    <section id="our-story" class="section story-section">
+      <div class="section-header">
+        <span class="section-tag">Every Moment With You</span>
+        <h2 class="section-title">Our Little Story <span class="heart-text">❤️</span></h2>
+        <p class="section-subtitle">How every sweet second turned into our eternal fairy tale</p>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <!-- Timeline cards dynamically injected via script.js -->
+        <div id="timeline-cards-wrapper" class="timeline-cards-wrapper"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3, 4, 5. OUR MEMORIES (GALLERY & LIGHTBOX)
+         ========================================== -->
+    <section id="memories" class="section memories-section">
+      <div class="section-header">
+        <span class="section-tag">Captured In Time</span>
+        <h2 class="section-title">Our Memories <span class="camera-icon">📸</span></h2>
+        <p class="section-subtitle">A collection of my most favorite sights in this entire universe</p>
+      </div>
+
+      <!-- Gallery View Controls -->
+      <div class="gallery-toolbar">
+        <div class="view-toggles">
+          <button id="view-carousel-btn" class="toggle-btn active" title="Show Carousel">
+            <span>🎠 Slider View</span>
+          </button>
+          <button id="view-grid-btn" class="toggle-btn" title="Show Grid">
+            <span>🔲 Grid View</span>
+          </button>
+        </div>
+
+        <div class="photo-counter-badge glass-pill">
+          <span id="gallery-counter">01 / 08</span>
+        </div>
+      </div>
+
+      <!-- Carousel / Slider View -->
+      <div id="carousel-view" class="gallery-carousel-container">
+        <button id="gallery-prev" class="gallery-nav-btn prev-btn" aria-label="Previous Photo">
+          &#10094;
+        </button>
+
+        <div class="gallery-slider-viewport" id="gallery-slider-viewport">
+          <div class="gallery-slider-track" id="gallery-slider-track">
+            <!-- Memory cards injected via script.js -->
+          </div>
+        </div>
+
+        <button id="gallery-next" class="gallery-nav-btn next-btn" aria-label="Next Photo">
+          &#10095;
+        </button>
+
+        <!-- Carousel Indicators -->
+        <div class="gallery-dots" id="gallery-dots"></div>
+      </div>
+
+      <!-- Grid View (Hidden by default, toggleable) -->
+      <div id="grid-view" class="gallery-grid-container hidden">
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Grid items injected via script.js -->
+        </div>
+      </div>
+
+      <p class="gallery-hint">💡 Tip: Tap or click any picture to open it in full romantic zoom!</p>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-overlay hidden" role="dialog" aria-modal="true">
+      <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+      
+      <div class="lightbox-content glass-card">
+        <button id="lightbox-close" class="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+        
+        <div class="lightbox-image-wrap">
+          <img id="lightbox-img" src="" alt="Full Screen Memory">
+          <div class="heart-burst-animation" id="heart-burst">💖</div>
+        </div>
+
+        <div class="lightbox-details">
+          <div class="lightbox-badge" id="lightbox-badge">Photo 01</div>
+          <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+
+        <div class="lightbox-nav">
+          <button id="lightbox-prev" class="lightbox-nav-btn" aria-label="Previous Image">&#10094; Prev</button>
+          <button id="lightbox-next" class="lightbox-nav-btn" aria-label="Next Image">Next &#10095;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         7. REASONS WHY I LOVE YOU (10 CARDS)
+         ========================================== -->
+    <section id="reasons" class="section reasons-section">
+      <div class="section-header">
+        <span class="section-tag">A Thousand Reasons, Here Are 10</span>
+        <h2 class="section-title">Reasons Why I Love You <span class="heart-text">❤️</span></h2>
+        <p class="section-subtitle">Click each card to reveal the little secret why my heart chose you</p>
+      </div>
+
+      <div class="reasons-grid" id="reasons-grid">
+        <!-- 10 Interactive Cards injected via script.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         8. OPEN WHEN... 💌 (INTERACTIVE ENVELOPES)
+         ========================================== -->
+    <section id="love-notes" class="section love-notes-section">
+      <div class="section-header">
+        <span class="section-tag">Letters From My Heart</span>
+        <h2 class="section-title">Open When… <span class="letter-icon">💌</span></h2>
+        <p class="section-subtitle">Whenever you need my love, touch an envelope to read my personal note</p>
+      </div>
+
+      <div class="envelopes-grid" id="envelopes-grid">
+        <!-- Envelopes injected via script.js -->
+      </div>
+    </section>
+
+    <!-- Letter Reading Modal -->
+    <div id="letter-modal" class="letter-modal-overlay hidden" role="dialog" aria-modal="true">
+      <div class="letter-modal-backdrop" id="letter-modal-backdrop"></div>
+      
+      <div class="letter-paper-card">
+        <button id="letter-modal-close" class="letter-close-btn" aria-label="Close Letter">&times;</button>
+        
+        <div class="letter-wax-seal">💌</div>
+        
+        <div class="letter-content-scroll">
+          <h3 id="letter-modal-title" class="letter-title"></h3>
+          <div class="letter-divider">❦ ❦ ❦</div>
+          <p id="letter-modal-text" class="letter-body-text"></p>
+          <div class="letter-sign-off">
+            <span>Always and forever yours,</span>
+            <span class="letter-signature">Shivam ❤️</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         9. LOVE QUIZ 🎮 ("HOW WELL DO YOU KNOW US?")
+         ========================================== -->
+    <section id="quiz" class="section quiz-section">
+      <div class="section-header">
+        <span class="section-tag">Mini Fun Challenge</span>
+        <h2 class="section-title">How Well Do You Know Us? <span class="game-icon">🎮</span></h2>
+        <p class="section-subtitle">Let’s see if you remember our cute little secrets and moments!</p>
+      </div>
+
+      <div class="quiz-box glass-card" id="quiz-container">
+        <!-- Quiz Header -->
+        <div class="quiz-card-header">
+          <span class="quiz-step-tag" id="quiz-progress-label">Question 1 of 6</span>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 16.6%;"></div>
+          </div>
+        </div>
+
+        <!-- Quiz Question & Answers Container -->
+        <div id="quiz-active-screen">
+          <h3 class="quiz-question-text" id="quiz-question-text">Loading question...</h3>
+          <div class="quiz-options-list" id="quiz-options-list"></div>
+          
+          <!-- Cute Feedback Banner -->
+          <div id="quiz-feedback" class="quiz-feedback hidden">
+            <span id="quiz-feedback-icon">🎉</span>
+            <span id="quiz-feedback-text">Awesome!</span>
+          </div>
+
+          <div class="quiz-nav-row">
+            <button id="quiz-next-btn" class="btn-romantic glow-btn hidden">Next Question ➔</button>
+          </div>
+        </div>
+
+        <!-- Quiz Final Screen (Hidden Initially) -->
+        <div id="quiz-finish-screen" class="quiz-finish-screen hidden">
+          <div class="finish-badge">🏆 💖 👑</div>
+          <h3 class="finish-title">You know us pretty well ❤️</h3>
+          <p class="finish-score" id="quiz-final-score">You scored 6 / 6!</p>
+          <p class="finish-note" id="quiz-final-note">
+            Every memory with you is etched into my heart forever.
+          </p>
+          <button id="quiz-restart-btn" class="btn-romantic glow-btn">Play Again 🔁</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Confetti Canvas for Quiz Celebration & Hugs -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- ==========================================
+         10. OUR FUTURE TOGETHER 🌎
+         ========================================== -->
+    <section id="our-future" class="section future-section">
+      <div class="section-header">
+        <span class="section-tag">Unwritten Chapters</span>
+        <h2 class="section-title">Our Future Together <span class="heart-text">🌎</span></h2>
+        <p class="section-subtitle">All the dreams, sunsets, and memories still waiting for us</p>
+      </div>
+
+      <div class="future-grid" id="future-grid">
+        <!-- 5 Future Cards injected via script.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         11. FINAL SURPRISE ❤️ (CLIMAX SECTION)
+         ========================================== -->
+    <section id="final-surprise" class="section final-surprise-section">
+      <div class="final-container glass-panel">
+        <div class="final-heart-crown">
+          <span class="pulse-ring"></span>
+          <span class="crown-heart">💖</span>
+        </div>
+
+        <!-- Dramatic Typewriter Climax Lines -->
+        <div class="final-typing-wrap">
+          <p id="final-line-1" class="final-line">“If I could choose one person again…”</p>
+          <p id="final-line-2" class="final-line highlight-gold">“I would still choose you. ❤️”</p>
+          <p id="final-line-3" class="final-line final-sub">“Today, tomorrow and every day.”</p>
+        </div>
+
+        <div class="final-interactive-box">
+          <button id="send-love-btn" class="btn-romantic glow-btn big-pulse">
+            <span>Send a Warm Hug to Shivam</span>
+            <span>🤗 ❤️</span>
+          </button>
+          <div id="hug-counter-msg" class="hug-counter-msg">Hugs sent: <strong id="hug-count">0</strong></div>
+        </div>
+
+        <div class="eternal-infinity">
+          <span class="infinity-symbol">∞</span>
+          <span class="infinity-text">You & Me • Forever and Always</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p class="footer-quote">
+          “You are my today and all of my tomorrows.”
+        </p>
+        <p class="footer-credit">
+          Handcrafted with endless love for <span class="footer-highlight">Sheetal</span> ❤️
+        </p>
+        <div class="footer-links">
+          <a href="#hero">Back To Top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Interactive Floating Heart Trigger Container (for tap ripples) -->
+  <div id="floating-hearts-layer" class="floating-hearts-layer"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
